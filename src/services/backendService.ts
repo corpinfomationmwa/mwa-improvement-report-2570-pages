@@ -158,7 +158,7 @@ export async function submitReportToBackend(
     console.log('pdf.base64 (length):', cleanPdfBase64.length);
 
     // Use backend proxy endpoint /api/submit-report (which securely forwards to GOOGLE_APPS_SCRIPT_URL)
-    const baseUrl = typeof window !== 'undefined' && window.location?.origin ? window.location.origin : 'http://127.0.0.1:3000';
+    const baseUrl = (import.meta.env.VITE_API_BASE_URL || 'https://mwa-improvement-report-2570-4oiy3kxmaa-as.a.run.app').replace(/\/+$/, '');
     const endpoint = `${baseUrl}/api/submit-report`;
     const normalizedBody = {
       ...payload,
