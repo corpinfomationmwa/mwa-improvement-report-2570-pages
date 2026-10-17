@@ -4,7 +4,7 @@ import { affiliationsConfig } from '../config/optionsData';
 
 // Cloudflare Pages frontend calls the existing backend through this configurable base URL.
 // Set VITE_API_BASE_URL in Cloudflare Pages to the existing backend origin (no trailing slash).
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '');
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://mwa-improvement-report-2570-4oiy3kxmaa-as.a.run.app').replace(/\/+$/, '');
 function apiUrl(path: string): string {
   return `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
