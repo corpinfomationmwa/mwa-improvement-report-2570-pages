@@ -1,0 +1,416 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Sarabun', 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0054a6; /* MWA signature corporate blue */
+    min-height: 100vh;
+    color: #2c3e50;
+  }
+}
+
+/* Master Reference Container Styles */
+.mwa-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .mwa-container {
+    margin: 10px;
+    border-radius: 6px;
+  }
+}
+
+/* Master Header */
+.mwa-header {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 22px 30px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.mwa-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .mwa-header {
+    padding: 16px 18px;
+  }
+  .mwa-header h1 {
+    font-size: 18px;
+  }
+}
+
+/* Master Tabs Navigation */
+.mwa-tabs {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.mwa-tab {
+  flex: 1;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #495057;
+  transition: all 0.25s ease;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mwa-tab:hover {
+  background: #e9ecef;
+  color: #2c3e50;
+}
+
+.mwa-tab.active {
+  background: white;
+  color: #2c3e50;
+  border-bottom-color: #3498db;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .mwa-tab {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+}
+
+/* Master Step Indicator */
+.mwa-step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+  gap: 10px;
+}
+
+.mwa-step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: #e9ecef;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.mwa-step {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  background: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6c757d;
+  border: 2px solid #e9ecef;
+  position: relative;
+  z-index: 2;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.mwa-step.active {
+  border-color: #3498db;
+  color: #3498db;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+  background: #ffffff;
+}
+
+.mwa-step.completed {
+  border-color: #27ae60;
+  color: #27ae60;
+}
+
+@media (max-width: 768px) {
+  .mwa-step-indicator {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mwa-step-indicator::before {
+    display: none;
+  }
+  .mwa-step {
+    padding: 8px 12px;
+    font-size: 13px;
+    text-align: left;
+  }
+}
+
+/* Master Form Section */
+.mwa-form-section {
+  background: #ffffff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.mwa-form-section h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+.mwa-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.mwa-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.mwa-form-group label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.mwa-form-group input,
+.mwa-form-group select,
+.mwa-form-group textarea {
+  padding: 12px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+.mwa-form-group input:focus,
+.mwa-form-group select:focus,
+.mwa-form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.mwa-form-group select:disabled {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.mwa-form-group textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Master Buttons */
+.mwa-btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  margin: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mwa-btn-primary {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.mwa-btn-primary:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.35);
+}
+
+.mwa-btn-success {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  color: white;
+}
+
+.mwa-btn-success:hover {
+  background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.35);
+}
+
+.mwa-btn-warning {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+}
+
+.mwa-btn-warning:hover {
+  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.35);
+}
+
+/* Checkbox item & topic selection */
+.mwa-checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  font-size: 13.5px;
+}
+
+.mwa-checkbox-item:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+}
+
+.mwa-topic-tag {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 4px 10px;
+  margin: 3px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Print Media Rules for Official A4 Landscape PDF */
+@page {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media screen {
+  #mwa-print-root {
+    display: none !important;
+  }
+}
+
+@media print {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide app screen UI, modals, backdrops, and navigation */
+  #mwa-app-root,
+  .mwa-screen-ui,
+  .mwa-pdf-preview-backdrop,
+  .mwa-pdf-preview-toolbar,
+  .mwa-container,
+  .mwa-header,
+  .mwa-tabs,
+  header,
+  nav,
+  .fixed {
+    display: none !important;
+  }
+
+  /* Show only the dedicated print document */
+  #mwa-print-root,
+  .print-document,
+  #mwa-printable-sheet {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Dynamic Multi-Page Table Continuity */
+  table.mwa-print-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  table.mwa-print-table thead {
+    display: table-header-group !important;
+  }
+
+  table.mwa-print-table tfoot {
+    display: table-footer-group !important;
+  }
+
+  table.mwa-print-table tbody {
+    display: table-row-group !important;
+  }
+
+  table.mwa-print-table tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+}
+
+/* Official Government Thai Sarabun font styling for PDF Document */
+.mwa-pdf-official-font {
+  font-family: 'Sarabun', 'TH Sarabun New', sans-serif !important;
+}
+

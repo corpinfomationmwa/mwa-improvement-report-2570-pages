@@ -1,0 +1,120 @@
+/* Print CSS for MWA Improvement Report (A4 Landscape) */
+
+@page {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media screen {
+  /* On screen, hide the standalone print-only document */
+  #mwa-print-root {
+    display: none !important;
+  }
+}
+
+@media print {
+  /* Hide the entire Web Application UI, Navigation, Tabs, Sidebar, Modal, Controls */
+  #mwa-app-root,
+  .mwa-screen-ui,
+  .mwa-container,
+  .mwa-header,
+  .mwa-tabs,
+  .mwa-pdf-preview-backdrop,
+  .mwa-pdf-preview-toolbar,
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  input,
+  select,
+  textarea,
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    font-size: 10pt;
+    font-family: 'Sarabun', 'TH Sarabun New', 'Prompt', sans-serif !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Show only the dedicated MWA Print Document */
+  .print-document,
+  #mwa-print-root,
+  #mwa-printable-sheet {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Table formatting for A4 print */
+  .mwa-print-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #000000 !important;
+    page-break-inside: auto;
+    break-inside: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .mwa-print-table thead {
+    display: table-header-group !important;
+  }
+
+  .mwa-print-table tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .mwa-print-table th,
+  .mwa-print-table td {
+    border: 1px solid #000000 !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    vertical-align: top;
+  }
+
+  .mwa-print-table th {
+    font-weight: bold !important;
+    text-align: center !important;
+  }
+
+  /* Avoid break on section blocks */
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Page break utility */
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}
